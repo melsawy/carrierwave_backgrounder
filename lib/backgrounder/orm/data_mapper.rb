@@ -26,7 +26,8 @@ module CarrierWave
 
             def write_#{column}_identifier
               super and return if process_#{column}_upload
-              self.#{column}_tmp = _mounter(:#{column}).cache_name
+              Rails.logger.info "melsawy_debug_store_background22..[#{column}] ----- #{self.inspect}"
+              self.#{column}_tmp = _mounter(:#{column}).cache_names
             end
           RUBY
         end
